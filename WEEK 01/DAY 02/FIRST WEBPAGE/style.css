@@ -1,0 +1,39 @@
+<!-- -->
+
+img {
+    width: 100%;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+article {
+    max-width: 600px;
+    margin: 0 auto; 
+    /* top-bottom - 0
+    left-right - automatically distribute space*/
+}
+
+
+h1 {
+    text-align: center;
+    color: #4b4b4d;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+
+h2 {
+    font-size: 28px;
+    margin: 10px 0;
+    color: #bf934f;
+    text-align: center;
+}
+
+
+p {
+    font-size: 18px;
+    color: #5f5f5f;
+    margin-bottom: 10px;
+}   
