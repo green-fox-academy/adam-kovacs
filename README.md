@@ -6,3 +6,5 @@
 [Git lesson repository](https://github.com/adam-kovacs/git-lesson-repository)
 
 [Patchwork repository](https://github.com/adam-kovacs/patchwork)
+
+[Another practice repo, containing the introduction website] (https://github.com/adam-kovacs/adam-kovacs.github.io.git)
