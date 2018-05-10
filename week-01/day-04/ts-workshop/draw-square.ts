@@ -2,7 +2,7 @@
 export{};
 
 
-let lineCount: number = 6;
+let lineCount: number = 12;
 
 // Write a program that draws a square like this:
 //
@@ -15,12 +15,27 @@ let lineCount: number = 6;
 //
 // The square should have as many lines as lineCount is
 
-let topbottom: string = '%%%%%';
+let sqr: string;
 
-console.log(topbottom);
-
-for (let i: number = 0; i <= lineCount - 3; i++) {
-  console.log('%   %');
+function topbottom () {
+  let top: string = '';
+  for (let i: number = 0; i <= lineCount - 1; i++) {
+    top += '%';
+  }
+  console.log(top);
 }
 
-console.log(topbottom);
+topbottom();
+
+for (let i: number = 0; i <= lineCount - 3; i++) {
+  sqr = '%';
+
+  for (let j: number = 0; j < lineCount - 2; j++) {
+    sqr += ' ';
+  }
+ 
+  sqr += '%';
+
+  console.log(sqr);
+}
+topbottom();
