@@ -1,9 +1,21 @@
-let a: number = 2;
-let b: number = 0;
+let i: number = 0;
+do {
+  console.log(i);
+  i++;
+} while (i > 10)
 
-a +=10;
-console.log(a * b * 2);
 
-console.log(a);
-
-console.log(0 / b);
+let myVar: any = 2;
+switch (myVar) {
+  case 'yo':
+    console.log('hello');
+    break;
+  case 2:
+    console.log('ciao');
+    break;
+  case 3:
+    console.log('yo');
+    break;
+  default: 
+    console.log('false');
+}
