@@ -1,7 +1,7 @@
 'use strict';
-export{}
+export {};
 
-let lineCount: number = 7;
+let lineCount: number = 10;
 
 // Write a program that draws a
 // diamond like this:
@@ -19,7 +19,7 @@ let lineCount: number = 7;
 let star, spaces: number;
 let diamond: string;
 
-for (let i : number = 0; i <= lineCount - 1; ++i) {
+for (let i : number = 0; i < lineCount; ++i) {
   diamond = '';
   spaces = Math.abs(Math.floor(lineCount / 2) - i);
   star = lineCount - spaces * 2;
