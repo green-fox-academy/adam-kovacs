@@ -7,4 +7,4 @@
 
 [Patchwork repository](https://github.com/adam-kovacs/patchwork)
 
-[Another practice repo, containing the introduction website] (https://github.com/adam-kovacs/adam-kovacs.github.io.git)
+[Another practice repo, containing the introduction website](https://github.com/adam-kovacs/adam-kovacs.github.io.git)
