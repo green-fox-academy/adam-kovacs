@@ -1,7 +1,7 @@
 'use strict';
 export { };
 
-let lineCount: number = 24;
+let lineCount: number = 11;
 
 // Write a program that draws a
 // diamond like this:
