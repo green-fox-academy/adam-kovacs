@@ -1,9 +1,10 @@
-function sayHello() {
-  console.log('cheers bud');
-}
+let fighter: string[] = ['X-wing', 'TIE-Fighter', 'Y-wing'];
+console.log(fighter);
 
-function multiply (a, b: number) {
-  return (a * b);  
-}
+fighter.push('TIE-Interceptor');
+fighter.unshift('LAAT');
+console.log(fighter);
 
-console.log(multiply(3, 5));
+let takeoff = fighter.map(start => `${start} is ready for take-off.`);
+console.log(takeoff);
+
