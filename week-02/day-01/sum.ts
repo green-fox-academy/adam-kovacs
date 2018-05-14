@@ -7,7 +7,6 @@ function sum(limit: number) {
   let subSum: number = 0;
   for (let i: number = 1; i <= limit; i++) {
     subSum = subSum + i;
-    console.log(i);
   }
   return subSum;
 }
