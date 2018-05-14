@@ -1,7 +1,7 @@
 'use strict';
 export { };
 
-let lineCount: number = 11;
+let lineCount: number = 20;
 
 // Write a program that draws a
 // diamond like this:
@@ -42,4 +42,24 @@ for (let i: number = 0; i < lineCount; ++i) {
   if (lineCount % 2 == 0 && i == lineCount / 2) {
     console.log(diamond);
   }
+}
+
+let lc: number = 9;
+let dia: string = '';
+
+for (let i: number = 0; i < lc; i++) {
+  dia = '';
+  for (let j: number = 1; j < lc + 1; j++) {
+    if (j >= Math.abs(Math.ceil(lc / 2) - i) && j <= Math.ceil(lc / 2) + i) {
+      dia
+        += '*';
+    } else {
+      dia += ' ';
+    }
+  }
+
+  console.log(dia);
+  /*if (lc % 2 === 0 && i === (lc / 2) + 1) {
+    console.log(dia);
+  }*/
 }
