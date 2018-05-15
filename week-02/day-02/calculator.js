@@ -14,7 +14,7 @@
 
 const args = process.argv.splice(2);
 
-function calculate (arr) {
+function calculate(arr) {
   if (arr.length !== 3) {
     console.log('Please give three valid arguments\nValid operators are: + , -, *, /, %\nValid input format: #operator #operand #operand')
     return '--unexpected input';
@@ -36,5 +36,4 @@ function calculate (arr) {
     }
   }
 }
-
 console.log(calculate(args));
