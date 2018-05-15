@@ -3,12 +3,12 @@
 // Create a function that accepts 'listOfNumbers' as an input
 // it should return "true" if it contains all, otherwise "false"
 
-function checkNums (listOfNumbers) {
+function checkNums(listOfNumbers) {
   let lookingFor = [4, 8, 12, 16];
 
   for (let i: number = 0; i < lookingFor.length; i++) {
-    if (!listOfNumbers.includes(lookingFor[i])) {    
-      return false; 
+    if (!listOfNumbers.includes(lookingFor[i])) {
+      return false;
     };
   };
   return true;
