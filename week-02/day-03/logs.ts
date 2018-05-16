@@ -21,7 +21,6 @@ function uniqueIP(logArray) {
   let newArray = [];
   for (let i: number = 0; i < logArray.length; i++) {
     console.log(logArray[i].slice(27, 38));
-    // logArray[i] = logArray[i].slice(27, 38);
     lastIndex = -1;
     while (true) {
       lastIndex = logArray.indexOf(logArray[i]);
