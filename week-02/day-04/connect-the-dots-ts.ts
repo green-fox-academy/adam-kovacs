@@ -15,7 +15,7 @@ function connect(xyPos) {
   ctx.beginPath();
   ctx.strokeStyle = 'green';
   ctx.moveTo(xyPos[0][0], xyPos[0][1]);
-  for (let i: number = 0; i < xyPos.length; i++){
+  for (let i: number = 0; i < xyPos.length; i++) {
     ctx.lineTo(xyPos[i][0], xyPos[i][1]);
   }
   ctx.lineTo(xyPos[0][0], xyPos[0][1]);
