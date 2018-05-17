@@ -7,27 +7,26 @@ const ctx = canvas.getContext('2d');
 //Well okay it doesn't really matter now
 //Do the Line play quarters!
 
-let quarters: number = 64;
+let quarters: number = 256;
 let stroke: number = 12;
-let padding: number = 2;
-let quWidth: number = canvas.width / quarters;
-let quHeight: number = canvas.height / quarters;
+let quWidth: number = canvas.width / (Math.sqrt(quarters));
+let quHeight: number = canvas.height / (Math.sqrt(quarters));
 
 function linePlay(x, y) {
 
   ctx.strokeStyle = 'rgb(176, 78, 240)';
   for (let i: number = 0; i < stroke; i++) {
     ctx.beginPath();
-    ctx.moveTo(x + padding + i * ((quWidth - 2 * padding) / stroke), y + padding);
-    ctx.lineTo((x + quWidth) - padding, y + padding + i * ((quHeight - 2 * padding) / stroke));
+    ctx.moveTo((x + i * (quWidth / stroke)), y);
+    ctx.lineTo(x + quWidth, y + i * (quHeight / stroke));
     ctx.stroke();
   }
 
   ctx.strokeStyle = 'green';
   for (let i: number = 0; i < stroke; i++) {
     ctx.beginPath();
-    ctx.moveTo(x + padding, y + padding + i * ((quHeight - 2 * padding) / stroke));
-    ctx.lineTo(x + padding + i * ((quWidth - 2 * padding) / stroke), (y + quHeight) - padding)
+    ctx.moveTo(x, y + i * (quHeight / stroke));
+    ctx.lineTo(x +i * (quWidth / stroke),y + quHeight)
     ctx.stroke();
   }
 }
