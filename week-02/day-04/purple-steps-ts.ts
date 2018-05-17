@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d');
 // Reproduce this:
 // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-ctx.fillStyle = 'rgb(176, 78, 240';
+ctx.fillStyle = 'rgb(176, 78, 240)';
 for (let i: number = 0; i < 20; i++) {
   ctx.strokeRect(i * 10, i * 10, 10, 10);
   ctx.fillRect(i * 10, i * 10, 10, 10);
