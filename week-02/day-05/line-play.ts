@@ -7,9 +7,6 @@ const ctx = canvas.getContext('2d');
 //Well okay it doesn't really matter now
 //Do the Line play!
 
-console.log('yo');
-
-
 ctx.strokeStyle = 'rgb(176, 78, 240)';
 ctx.beginPath();
 for (let i: number = 0; i < 12; i++) {
