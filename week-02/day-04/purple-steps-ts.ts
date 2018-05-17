@@ -9,7 +9,6 @@ const ctx = canvas.getContext('2d');
 
 ctx.fillStyle = 'rgb(176, 78, 240';
 for (let i: number = 0; i < 20; i++) {
-  ctx.moveTo(i * 10, i * 10);
   ctx.strokeRect(i * 10, i * 10, 10, 10);
   ctx.fillRect(i * 10, i * 10, 10, 10);
 }
