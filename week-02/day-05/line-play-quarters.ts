@@ -7,8 +7,9 @@ const ctx = canvas.getContext('2d');
 //Well okay it doesn't really matter now
 //Do the Line play quarters!
 
-let quarters: number = 256;
-let stroke: number = 12;
+let quarters: number = parseInt((window.prompt("Please enter the number of quadrants:")));
+let stroke: number = parseInt((window.prompt("Please enter the number of strokes:")));
+
 let quWidth: number = canvas.width / (Math.sqrt(quarters));
 let quHeight: number = canvas.height / (Math.sqrt(quarters));
 
