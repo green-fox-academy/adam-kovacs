@@ -6,7 +6,7 @@ We can use() the sharpie objects
 which decreases inkAmount*/
 'use strict'
 
-export class Sharpie {
+class Sharpie {
   color: string;
   width: number;
   inkAmount: number = 100;
@@ -20,3 +20,5 @@ export class Sharpie {
     this.inkAmount--;
   }
 }
+
+export {Sharpie};
