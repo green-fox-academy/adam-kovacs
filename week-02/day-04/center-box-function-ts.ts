@@ -9,6 +9,7 @@ const ctx = canvas.getContext('2d');
 // and draws a square of that size to the center of the canvas.
 // Draw 3 squares with that function.
 // Avoid code duplication.
+let strokeCount: number = '12';
 
 function drawSquare (a) {
   ctx.strokeRect(300 - a / 2, 200 - a / 2, a, a);

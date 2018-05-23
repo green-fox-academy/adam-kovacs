@@ -20,13 +20,14 @@ function uniqueIP(logArray) {
   let lastIndex: number;
   let newArray = [];
   for (let i: number = 0; i < logArray.length; i++) {
-    console.log(logArray[i].slice(27, 38));
+    let newArray = logArray[i].slice(27, 38);    
     lastIndex = -1;
     while (true) {
       lastIndex = logArray.indexOf(logArray[i]);
       firstIndex = logArray.lastIndexOf(logArray[i]);
+      console.log(newArray);
+      
       if (lastIndex === firstIndex) {
-        newArray.push(logArray[i].slice(27, 38));
         break;
       } else {
         logArray.splice(lastIndex, 1);
