@@ -1,6 +1,6 @@
 'use strict'
 
-class Student {
+export class Student {
   name: string;
   grades: number[];
 
@@ -12,13 +12,22 @@ class Student {
       this.grades = [];
     }
   }
+
+  getAverage(): number {
+    return this.grades.reduce(
+      (accumulator, currentValue) => accumulator + currentValue
+    ) / this.grades.length;
+  }
+
+  addGrade(grade: number): void {
+    this.grades.push(grade);
+  }
 }
 
 let jozsi = new Student('Joskagyerek');
 let god = new Student('God');
-//jozsi.name = 'Jozsi';
-//jozsi.grades = [1,2,3];
-jozsi.grades.push(5);
+jozsi.addGrade(5);
 
 console.log(jozsi.name, jozsi.grades);
 console.log(god.name, god.grades);
+console.log(god.getAverage());
