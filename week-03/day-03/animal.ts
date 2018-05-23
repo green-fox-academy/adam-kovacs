@@ -1,19 +1,26 @@
 'use strict'
 
-export class Animal {
-  hunger: number = 50;
-  thirst: number = 50;
+class Animal {
+  hunger: number;
+  thirst: number;
 
-  eat () {
+  constructor(hunger = 50, thirst = 50) {
+    this.hunger = hunger;
+    this.thirst = thirst;
+  }
+
+  eat() {
     this.hunger--;
   }
 
-  drink () {
+  drink() {
     this.thirst--;
   }
 
-  play () {
+  play() {
     this.thirst++;
     this.hunger++;
   }
 }
+
+export { Animal }
