@@ -6,7 +6,6 @@ function string1(str: string): string {
   if (str.indexOf('x') === -1) {
     return str;
   }
-  console.log(str);
   return string1(str.replace('x', 'y'));
 }
 
