@@ -55,15 +55,6 @@ function drawBranch(x1: number, y1: number, dir: number, ß: number, x0?: number
   let dY: number;
 
   depth++;
-  if (depth > maxDepth) {
-    depth--;
-    return
-  } else if (depth === 1) {
-
-    line.draw(x1, y1, x0, y0);
-    x2 = x0;
-    y2 = y0;
-  }
 
   switch (dir) {
     case -1:
