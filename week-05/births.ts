@@ -13,10 +13,8 @@ function countBirths(fileName: string) {
     } else {
       births[element] = 1;
     }
-  });
-  console.log(births);
-  
+  }); 
   return Object.keys(births).reduceRight((a, b) => births[a] > births[b] ? a : b);
 }
-
 console.log(countBirths('births.csv'));
+
