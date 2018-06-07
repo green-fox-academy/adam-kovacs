@@ -7,10 +7,11 @@ let charEncode = 'utf-8';
 function countBirths(fileName: string) {
   let births = {};
   fs.readFileSync(fileName, charEncode).split('\r\n').forEach(element => {
-    if (births[element.split(';')[1].slice(0, 4)]) {
-      births[element.split(';')[1].slice(0, 4)]++;
+    element = element.split(';')[1].slice(0, 4);
+    if (births[element]) {
+      births[element]++;
     } else {
-      births[element.split(';')[1].slice(0, 4)] = 1;
+      births[element] = 1;
     }
   });
   return Object.keys(births).reduce((a, b) => births[a] > births[b] ? a : b);
