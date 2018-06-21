@@ -1,0 +1,50 @@
+nav {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+  margin: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+th {
+  background: black;
+  color: white;
+  padding: 10px 50px 10px 50px;
+}
+
+h1 {
+  display: inline;
+  font-size: 30pt;
+}
+
+h2 {
+  display: inline;
+  font-size: 12pt;
+}
+
+
+h3 {
+  display: inline;
+  font-size: 10pt;
+}
+
+.price {
+  text-align: center;
+}
+
+.colored {
+  background: #EEEEEE;
+}
+
+table, th, td {
+  padding: 5px;
+}
