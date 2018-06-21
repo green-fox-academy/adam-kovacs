@@ -1,3 +1,66 @@
+a {
+  text-decoration: none;
+}
+
 body {
+  background: #ECF0F1;
+}
+
+.weatherCard {
+  width: 500px;
+  height: 100px;
+  border-radius: 8px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
   font-family: 'Lato', sans-serif;
+  background: white;
+  color: #34495E;
+  padding: 10px;
+  box-shadow: 4px 2px 2px rgba(50, 50, 50, 0.4);
+}
+
+.text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.cityName {
+  position: relative;
+  margin-left: 20px;
+  height: 30px;
+  top: calc(50% - 20px);
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.location {
+  position: relative;
+  margin-left: 20px;
+  top: 30px;
+  height: 20px;
+  font-size: 11pt;
+}
+
+.temperature {
+  position: relative;
+  width: 125px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25pt;
+}
+
+.icon {
+  position: relative;
+  width: 125px;
+}
+
+img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -50px 0px 0px -50px;
+  height: 100px;
 }

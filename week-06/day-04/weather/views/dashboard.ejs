@@ -11,14 +11,26 @@
 <body>
 
   <% cityData.forEach(element => { %>
-    <div class="weatherCard">
-      <div>
-        <div class="cityName"><%= cityData.city %></div>
-        <div class="location"><%= cityData.location %></div>
+    <a href="/cities/<%= element.city %>">
+      <div class="weatherCard">
+
+        <div class="text">
+          <div class="cityName">
+            <%= element.city %>
+          </div>
+          <div class="location">
+            <%= element.location %>
+          </div>
+        </div>
+
+        <div class="temperature">
+          <%= element.weather[0].temp %>°C</div>
+        <div class="icon">
+          <img src="static/<%= element.weather[0].icon %>.png">
+        </div>
+        
       </div>
-      <div class="temperature"><%= cityData.weather[0].temp %></div>
-      <div class="icon"><img src="static/<%= cityData.weather[0].icon %>.png"</div>
-    </div>
+    </a>
     <% }); %>
 
 </body>

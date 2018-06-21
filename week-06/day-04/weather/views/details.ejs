@@ -3,12 +3,31 @@
 
 <head>
   <meta charset="utf-8" />
-  <title><%= cityData.city %> weather forecast</title>
+  <title>
+    <%= cityData.city %> weather forecast</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="static/main.css" />
+  <link rel="stylesheet" type="text/css" href="../static/details.css" />
 </head>
 
 <body>
+  <h1><%= cityData.city %></h1>
+  <% cityData.weather.forEach(element => { %>
+    <div class="weatherCard">
+
+      <div class="icon">
+        <img src="../static/<%= element.icon %>.png">
+      </div>
+      <div class="temperature">
+          <%= element.temp %>°C
+        </div>
+
+        <div class="message">
+          <%= element.message %>
+        </div>
+
+
+    </div>
+    <% }); %>
 
 </body>
 
