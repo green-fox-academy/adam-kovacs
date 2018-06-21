@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Weather forecast APP</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="static/main.css" />
+</head>
+
+<body>
+
+  <% cityData.forEach(element => { %>
+    <div class="weatherCard">
+      <div>
+        <div class="cityName"><%= cityData.city %></div>
+        <div class="location"><%= cityData.location %></div>
+      </div>
+      <div class="temperature"><%= cityData.weather[0].temp %></div>
+      <div class="icon"><img src="static/<%= cityData.weather[0].icon %>.png"</div>
+    </div>
+    <% }); %>
+
+</body>
+
+</html>
