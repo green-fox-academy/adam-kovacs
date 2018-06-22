@@ -1,3 +1,100 @@
 body {
-  
+  background: linear-gradient(to right, grey, white, grey);
+}
+
+#container {
+  position: absolute;
+  top: calc(50% - 216px);
+  left: calc(50% - 429px);
+  display: flex;
+  flex-direction: column;
+}
+
+#maindisplay {
+  display: flex;
+  flex-direction: row;
+  width: 858px;
+  height: 432px;
+}
+
+#picture {
+  width: 768px;
+  height: 432px;
+}
+
+#story {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  padding-top: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  min-height: 90px;
+  max-width: 768px;
+  margin-top: -100px;
+  font-family: 'Lato', sans-serif;
+  color: rgba(221, 221, 221, 0.9);
+  font-size: 10pt;
+  word-wrap: normal;
+  text-overflow: clip;
+}
+
+#pic-window {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20pt;
+}
+
+.navbutton {
+  width: 45px;
+  border-style: none;
+  display: block;
+}
+
+.navbutton:active {
+  opacity: 0.6;
+}
+
+button:focus {
+  outline:0;
+}
+
+#navb1:active, #navb2:active{
+  opacity: 0.6;
+}
+
+#navb2 {
+  transform: rotate(180deg);
+}
+
+#thumbnail-container {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.thumbnail {
+  height: 80px;
+  width: 80px;
+  overflow: hidden;
+  border: 6px solid #DDDDDD;
+  border-radius: 3px;
+  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.6);
+  margin: 0px 10px 0px 10px;
+}
+
+.selected {
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.7);
+  margin: -10px 10px 0px 10px;
+}
+
+.tnImage {
+  position: relative;
+  height: 100%;
+  margin-left: -30px;
 }
