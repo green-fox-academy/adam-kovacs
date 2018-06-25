@@ -134,13 +134,10 @@ app.post('/sith', (req, res) => {
         }
 
       });
-      console.log(capitalArray);
       capitalArray.forEach(point => {
-        console.log(newArray[point][0])
         newArray[point][0] = newArray[point][0].toUpperCase();
       });
       element = newArray.join(' ');
-      console.log(element);
       returnText += newArray;
     });
     res.json({
