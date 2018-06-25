@@ -1,14 +1,15 @@
 'use strict'
 
+//
 const picData = [
-  { title: "Welcome to Cyberpunk", story: "loremlllllllllllllllllllll llllllllllllllllll llllllllllllll llllllllllllllll lll l lll ll llllllllllllllllllll llllllllllllllll llllllaaaaaa aaa aaaaaa aaaaa aaaaa aaaaaa aaaaaaaa a aa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaa aaaa aa aaaaaaaa aaaaa aa aa aaaa aaa", src: "static/red-chinese.jpg" },
-  { title: "Abstract", story: "lorem", src: "static/abstract.png" },
-  { title: "Seattle Streets", story: "lorem", src: "static/cp-street.jpg" },
-  { title: "Heoi Suburb", story: "lorem", src: "static/heoi.jpg" },
-  { title: "Hotel Marina", story: "lorem", src: "static/hotel-marina.jpg" },
-  { title: "Chinese Neon", story: "lorem", src: "static/neon.jpg" },
-  { title: "New Shanghai", story: "lorem", src: "static/new-shanghai.jpg" },
-  { title: "Red Sky", story: "lorem", src: "static/red-sky.png" },
+  { title: "Welcome to Cyberpunk", story: "lorem ipsum", src: "static/red-chinese.jpg" },
+  { title: "Abstract", story: "lorem ipsum", src: "static/abstract.png" },
+  { title: "Seattle Streets", story: "lorem ipsum", src: "static/cp-street.jpg" },
+  { title: "Heoi Suburb", story: "lorem ipsum", src: "static/heoi.jpg" },
+  { title: "Hotel Marina", story: "lorem ipsum", src: "static/hotel-marina.jpg" },
+  { title: "Chinese Neon", story: "lorem ipsum", src: "static/neon.jpg" },
+  { title: "New Shanghai", story: "lorem ipsum", src: "static/new-shanghai.jpg" },
+  { title: "Red Sky", story: "lorem ipsum", src: "static/red-sky.png" },
 ];
 
 let currentPic = 0;
@@ -18,6 +19,7 @@ let storyBlock = document.querySelector('#story');
 let tnContainer = document.querySelector('#thumbnail-container');
 
 function updateMain() {
+  console.log(currentPic);
   Array.from(tnContainer.children).forEach((element, i) => {
     if (i !== currentPic) {
       element.setAttribute('class', 'thumbnail');
