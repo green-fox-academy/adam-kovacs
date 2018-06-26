@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Star Wars Query</title>
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
+
 <body>
-  
-  <script href="main.js"></script>
+  <div id="container">
+    <h1>Enter character name</h1>
+    <form>
+      <input type="text" id="chara-input" name="CharacterName">
+      <input type="submit" value="search" id="submit">
+    </form>
+    <div id="lists">
+      <ul id="chara-list"></ul>
+      <ul id="movie-list"></ul>
+    </div>
+  </div>
+  <script src="main.js"></script>
 </body>
+
 </html>
