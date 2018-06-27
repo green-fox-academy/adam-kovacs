@@ -1,15 +1,17 @@
 'use strict'
 
 const express = require('express');
+require('dotenv').config();
 const mysql = require('mysql');
 const app = express();
 const PORT = 3000;
+let path = require('path');
 
 let conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1234',
-  database: 'bookstore',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 conn.connect(function (err) {
@@ -20,17 +22,26 @@ conn.connect(function (err) {
   console.log('Connection established');
 });
 
+app.use('/assets', express.static('assets'));
+app.use(bodyParser.json());
+
 app.get('/booknames/', (req, res) => {
-  conn.query('SELECT book_name FROM book_mast;', function(err, rows) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/api', (req, res) => {
+  const sql = 'SELECT book_name FROM book_mast;';
+  conn.query(sql, function (err, rows) {
     if (err) {
       console.log(err.toString());
       res.status(500).send('Database error');
       return;
     }
-  res.send(rows);
-  });
-}),
 
-  app.listen(PORT, () => {
-    console.log(`listening to port: ${PORT}`);
+    res.json(rows);
   });
+}); 
+
+app.listen(PORT, () => {
+  console.log(`listening to port: ${PORT}`)
+});
