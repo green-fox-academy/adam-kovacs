@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 let path = require('path');
+let sql = '';
 
 let conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -26,17 +27,12 @@ conn.connect(function (err) {
 app.use('/assets', express.static('assets'));
 app.use(bodyParser.json());
 
-app.get('/booknames/', (req, res) => {
+app.get('/booknames/?', (req, res) => {
+  sql = queryHandler(req.query);
   res.sendFile(path.join(__dirname, '/assets/index.html'));
 });
 
 app.get('/api', (req, res) => {
-  let sql = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price 
-FROM book_mast, author, category, publisher
-WHERE author.aut_id = book_mast.aut_id
-AND category.cate_id = book_mast.cate_id
-AND publisher.pub_id = book_mast.pub_id;`;
-
   conn.query(sql, function (err, rows) {
     if (err) {
       console.log(err.toString());
@@ -51,3 +47,25 @@ AND publisher.pub_id = book_mast.pub_id;`;
 app.listen(PORT, () => {
   console.log(`listening to port: ${PORT}`)
 });
+
+let queryHandler = (queries) => {
+  sql = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price 
+  FROM book_mast, author, category, publisher
+  WHERE author.aut_id = book_mast.aut_id
+  AND category.cate_id = book_mast.cate_id
+  AND publisher.pub_id = book_mast.pub_id`
+  if (queries.category) {
+    sql += `\r\nAND category.cate_descrip = ${conn.escape(queries.category)}`;
+  }
+  if (queries.publisher) {
+    sql += `\r\nAND publisher.pub_name = ${conn.escape(queries.publisher)}`;
+  }
+  if (queries.plt) {
+    sql += `\r\nAND book_mast.book_price < ${parseInt(queries.plt)}`;
+  }
+  if (queries.pgt) {
+    sql += `\r\nAND book_mast.book_price > ${parseInt(queries.pgt)}`;
+  }
+  sql += ';';
+  return sql;
+}
