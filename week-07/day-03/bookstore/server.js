@@ -5,9 +5,10 @@ require('dotenv').config();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 3000;
 let path = require('path');
-let sql = '';
+const fs = require('fs');
+const PORT = 3000;
+let sql;
 
 let conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -44,6 +45,11 @@ app.get('/api', (req, res) => {
   });
 });
 
+app.get('/addusers', (req, res) => {
+  let userObject = csvTojs(fs.readFileSync('./assets/users.csv', 'utf-8'));
+  console.log(userObject[988]);
+}); 
+
 app.listen(PORT, () => {
   console.log(`listening to port: ${PORT}`)
 });
@@ -68,4 +74,48 @@ let queryHandler = (queries) => {
   }
   sql += ';';
   return sql;
+}
+
+let csvTojs = (csv) => {
+  let lines = csv.split("\n");
+  let result = [];
+  let headers = lines[0].split(",");
+  let obj = {};
+
+  for (let i = 1; i < lines.length; i++) {
+
+    let row = lines[i],
+      queryIdx = 0,
+      startValueIdx = 0,
+      idx = 0;
+
+    if (row.trim() === '') { continue; }
+
+    while (idx < row.length) {
+      let c = row[idx];
+
+      if (c === '"') {
+        do { c = row[++idx]; } while (c !== '"' && idx < row.length - 1);
+      }
+
+      if (c === ',' || idx === row.length - 1) {
+        let length = idx - startValueIdx;
+        if (idx === row.length - 1) {
+          length++;
+        }
+        let value = row.substr(startValueIdx, length).trim();
+
+        if (value[0] === '"') { value = value.substr(1); }
+        if (value[value.length - 1] === ',') { value = value.substr(0, value.length - 1); }
+        if (value[value.length - 1] === '"') { value = value.substr(0, value.length - 1); }
+
+        let key = headers[queryIdx++];
+        obj[key] = value;
+        startValueIdx = idx + 1;
+      }
+      ++idx;
+    }
+    result.push(obj);
+  }
+  return result;
 }
