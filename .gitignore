@@ -40,3 +40,5 @@ package.json
 package-lock.json
 week-07/day-03/package.json
 week-07/day-03/package-lock.json
+week-08/bowling-result-calculator.js
+week-08/bowling-result-calculator.test.js
