@@ -1,0 +1,56 @@
+body {
+  background-color: lightskyblue;
+  font-family: 'Lato', sans-serif;
+  color: grey;
+  font-size: 14pt;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 2px solid lightgray;
+  padding: 20px;
+}
+
+table tr {
+  background-color: #EBEBEB;
+}
+
+table tr:nth-child(even) {
+  background-color: white;
+}
+
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+
+thead, th {
+  margin: 0;
+  background-color: #21242B;
+  border-bottom: 4px solid #AAB0B9;
+  font-size: 18pt;
+  text-align: left;
+  width: 12em;
+  font-weight: normal;
+  color: lightgray;
+}
+
+.sum:before {
+  content: "$ ";
+}
+
+
