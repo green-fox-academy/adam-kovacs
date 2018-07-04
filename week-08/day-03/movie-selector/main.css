@@ -1,0 +1,53 @@
+body {
+  background-color: #EBEBEB;
+  font-family: 'Lato', sans-serif;
+}
+
+#container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+form {
+  font-size: 8pt;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 28em;
+  height: 20em;
+  padding: 30px 50px 70px 50px;
+  background-color: white;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: lighter;
+  font-size: 10pt;
+  margin-top: 20px;
+}
+
+h2 {
+  display: inline;
+  font-size: 10px;
+  margin: 5px;
+}
+
+h3 {
+  margin: 5px;
+  margin-top: 20px;
+}
+
+#submit {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-evenly;  
+}
+
+select {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: blue;
+  padding: 10px;
+}
