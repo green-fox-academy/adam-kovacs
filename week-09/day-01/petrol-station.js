@@ -3,8 +3,7 @@
 let car = {
   petrolLevel: 0,
   petrolCapacity: 50,
-  refill: amount => {
-    console.log(amount);
+  refill: function(amount) {
     if (this.petrolLevel + amount >= this.petrolCapacity) {
       let gasConsumed = this.petrolCapacity - this.petrolLevel;
       this.petrolLevel = this.petrolCapacity;
@@ -18,9 +17,7 @@ let car = {
 
 let station = {
   petrolStorage: 3000,
-  provide: car => {
-    let xy = car.refill(this.petrolStorage);
-    console.log(xy);
+  provide: function(car) {
     this.petrolStorage -= car.refill(this.petrolStorage);
   }
 }
