@@ -1,0 +1,36 @@
+body {
+  background-color: tomato;
+}
+
+.controlButtons {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  width: 150px;
+}
+
+button {
+  border-radius: 5px;
+  margin: 1px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#floorContainer>* {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid black;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  width: 100px;
+}
+
+#floorContainer>.selected {
+  background-color: green;
+  color: #fff;
+}
