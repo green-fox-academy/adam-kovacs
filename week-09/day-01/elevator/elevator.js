@@ -34,14 +34,12 @@ class ElevatorController {
 
     this.buttons.forEach(button => {
       button.addEventListener('click', () => this.buttonHandler(button.id));
-      console.log(`DOM button created: ${button.id}`);
     });
 
     this.elevatorView.updateView(this.elevatorModel.currentFloor, this.elevatorModel.currentPeople);
   }
 
   buttonHandler(buttonID) {
-    console.log(`button pressed: ${buttonID}`);
     switch (buttonID) {
       case 'elevatorUp':
         this.elevatorModel.changeFloor(1);
@@ -68,7 +66,6 @@ class ElevatorView {
       newChild.id = maxFloor - i;
       document.querySelector('#floorContainer').appendChild(newChild);
     }
-
     this.floorArray = document.querySelectorAll('#floorContainer>*');
   }
 
