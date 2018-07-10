@@ -1,0 +1,70 @@
+article {
+  background-color: greenyellow;
+  padding: 20px;
+}
+
+#art1, #art3 {
+  grid-column: 1 / 3;
+}
+
+#art2 {
+  grid-column: 3 / 5;
+}
+
+body {
+  margin: 0;
+}
+
+#container {
+  display: grid;
+  height: 100vh;
+  grid-template: 10vh 1fr / 1fr;
+}
+
+header {
+  align-items: center;
+  background-color: blueviolet;
+  display: flex;
+}
+
+footer {
+  background-color: lightgray;
+  grid-column: 1 / 5;
+}
+
+li {
+  background-color: cyan;
+  display: inline-block;
+  height: 6vh;
+  margin: 10px;
+  position: relative;
+  text-decoration: none;
+  width: 8vw;
+}
+
+#maincontent {
+  display: grid;
+  grid-gap: 10px;
+  grid-template: 1fr 1fr 10vh / repeat(4, 1fr);
+  margin: 10px 30px 30px 30px;
+}
+
+nav {
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+.red {
+  background-color: red;
+  height: 80%;
+  margin: auto;
+  width: 80%;
+}
+
+.redcontainer {
+  background-color: greenyellow;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
