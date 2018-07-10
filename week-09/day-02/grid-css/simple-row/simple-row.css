@@ -1,0 +1,25 @@
+#grid-container {
+  display: grid;
+  grid-template: 200px / 2fr 6fr 2fr;
+  font-size: 14pt;
+  font-weight: bold;
+  color: white;
+}
+
+#grid-container:first-child {
+  border-left: 8px solid purple
+}
+
+.item {
+  border-right: 8px solid purple;
+  border-bottom: 8px solid purple;
+  border-top: 8px solid purple;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#middle {
+  background-color: green;
+}
