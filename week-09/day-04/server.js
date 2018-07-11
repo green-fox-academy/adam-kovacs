@@ -1,16 +1,40 @@
-"use strict";
+'use strict';
 
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
-const sql = require("./static/sqlhandle");
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const sql = require('./static/sqlhandle');
 
+const database = sql.makeConnection();
 const app = express();
 const PORT = 3000;
 
-const database = new Promise((resolve, reject) => {
-  resolve(sql.makeConnection());
-})
-  .then(sql.connect) //need to make separate functions, this wont work w/ return
-  .then(sql.getQuestions)
-  .then(result => console.log(result));
+app.use('/static', express.static('static'));
+app.use(bodyParser.json());
+
+
+app.get('/questions', (req, res) => {
+  Promise.resolve(sql.getQuestions(database))
+    .then(function(queryData) {
+      res.json(queryData);
+    })
+    .catch(error => {
+      console.log(error.message);
+    });
+});
+
+
+app.get('/game', (req, res) => {
+  Promise.resolve(sql.getQuestions(database))
+    .then(function(queryData) {
+      res.json(queryData);
+    })
+    .catch(error => {
+      console.log(error.message);
+    });
+});
+
+
+app.listen(PORT, () => {
+  console.log(`app is listening on port: ${PORT}`);
+});
