@@ -22,7 +22,7 @@ module.exports = {
 
   countRows: (database, table) => {
     return new Promise((resolve, reject) => {
-      database.query(`SELECT COUNT (*) FROM ${table}`,
+      database.query(`SELECT COUNT (*) FROM ${table};`,
         (err, rows) => {
           if (err) reject(err);
           resolve(rows);
@@ -60,23 +60,42 @@ module.exports = {
 
   addNewQuestion: (database, question) => {
     return new Promise((resolve, reject) => {
-      database.query(`INSERT INTO questions(question) VALUES(?)`,
-        [question], (err) => {
+      let query = `INSERT INTO questions(question) VALUES(${question})`;
+      database.query(query, (err) => {
+        if (err) reject(err);
+        let query = `SELECT MAX(id) AS id FROM questions;`
+        database.query(query, (err, result) => {
           if (err) reject(err);
-          database.query(`SELECT MAX(id) AS id FROM questions;`, (err, result) => {
-            if (err) reject(err);
-            resolve(result);
-          })
+          resolve(result);
         })
+      })
     })
   },
 
   addAnswersByQuestionID: (database, answersObject, question_id) => {
     answersObject.forEach((answer, i) => {
-      database.query(`INSERT INTO answers(answer, is_correct, question_id) VALUES (?, ?, ?)`, [answer.answer, answer.is_correct, question_id[0].id],
+      let query = `
+      INSERT INTO answers(answer, is_correct, question_id) 
+      VALUES (?, ?, ?)`;
+      database.query(query, [answer.answer, answer.is_correct, question_id[0].id],
         (err) => {
           if (err) console.log(err);
         });
+    });
+  },
+
+  getRightAnswer: (database, questionID) => {
+    console.log('QUESTION ID AT SQLHANDLE: ', questionID);
+    let query = `
+    SELECT id 
+    FROM answers 
+    WHERE question_id = ${questionID} 
+    AND is_correct = 1;`;
+    return new Promise((resolve, reject) => {
+      database.query(query, (err, answerID) => {
+        if (err) reject(err);
+        resolve(answerID[0]);
+      });
     });
   },
 };

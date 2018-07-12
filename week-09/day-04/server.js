@@ -54,6 +54,18 @@ app.get('/game', (req, res) => {
   })
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'static/index.html'));
+});
+
+app.post('/evaluate', (req, res) => {
+  Promise.resolve(sql.getRightAnswer(database, req.body.id))
+  .then((answerID) => {
+    console.log('RIGHT ANSWR IS', answerID);
+    return res.json(answerID);
+  });
+});
+
 app.delete('/questions/:id', (req, res) => {
   sql.deleteQuestionByID(database, req.params.id);
 });
