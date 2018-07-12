@@ -49,4 +49,34 @@ module.exports = {
         })
     })
   },
+
+  deleteQuestionByID: (database, questionID) => {
+    database.query(`DELETE FROM questions WHERE id = ${questionID};`,
+      (err, deletedRows) => {
+        if (err) console.log(new Error('Database error. Can not delete question'))
+        else console.log(`${deletedRows.affectedRows} rows deleted`);
+      })
+  },
+
+  addNewQuestion: (database, question) => {
+    return new Promise((resolve, reject) => {
+      database.query(`INSERT INTO questions(question) VALUES(?)`,
+        [question], (err) => {
+          if (err) reject(err);
+          database.query(`SELECT MAX(id) AS id FROM questions;`, (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+          })
+        })
+    })
+  },
+
+  addAnswersByQuestionID: (database, answersObject, question_id) => {
+    answersObject.forEach((answer, i) => {
+      database.query(`INSERT INTO answers(answer, is_correct, question_id) VALUES (?, ?, ?)`, [answer.answer, answer.is_correct, question_id[0].id],
+        (err) => {
+          if (err) console.log(err);
+        });
+    });
+  },
 };

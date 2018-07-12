@@ -10,6 +10,9 @@ const database = sql.makeConnection();
 const app = express();
 const PORT = 3000;
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use('/static', express.static('static'));
 app.use(bodyParser.json());
@@ -40,13 +43,25 @@ app.get('/game', (req, res) => {
       Promise.resolve(sql.getAnswersByQuestionID(database, parseInt(question[0].id)))
       .then(answers => {
         return {
-          ...question, //NEEDS SOME RETHINKING HERE
-          ...answers //AS IF IT IS, IT ONLY RETURNS ANSWERS
+          id: question[0].id,
+          question: question[0].question,
+          answers
         } 
       })
       .then((response) => {
         res.json(response);
       })
+  })
+});
+
+app.delete('/questions/:id', (req, res) => {
+  sql.deleteQuestionByID(database, req.params.id);
+});
+
+app.post('/questions', (req, res) => {
+  Promise.resolve(sql.addNewQuestion(database, req.body.question))
+  .then((questionID) => {
+    return sql.addAnswersByQuestionID(database, JSON.parse(req.body.answers), questionID);
   })
 });
 
