@@ -33,11 +33,15 @@ button {
 }
 
 button:hover {
-  background-color: lightblue;
+background-color: lightblue;
 }
 
 button:focus {
   outline: none;
+}
+
+button:active {
+  background-color: rgb(139, 207, 230);
 }
 
 #container {
@@ -62,11 +66,12 @@ h2 {
   margin-bottom: 0;
 }
 
-.selected_wrong {
+
+.selected_wrong, button:hover.selected_wrong {
   background-color: darkred;
 }
 
-.selected_right {
+.selected_right, button:hover.selected_right {
   background-color: darkgreen;
 }
 

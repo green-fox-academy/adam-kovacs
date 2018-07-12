@@ -61,7 +61,6 @@ app.get('/', (req, res) => {
 app.post('/evaluate', (req, res) => {
   Promise.resolve(sql.getRightAnswer(database, req.body.id))
   .then((answerID) => {
-    console.log('RIGHT ANSWR IS', answerID);
     return res.json(answerID);
   });
 });

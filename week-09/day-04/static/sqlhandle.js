@@ -85,7 +85,6 @@ module.exports = {
   },
 
   getRightAnswer: (database, questionID) => {
-    console.log('QUESTION ID AT SQLHANDLE: ', questionID);
     let query = `
     SELECT id 
     FROM answers 
